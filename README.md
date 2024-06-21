@@ -3,7 +3,7 @@
 ### Identify and explain the workings of TWO sorting algorithms and discuss and compare their performance/efficiency (i.e. Big O)
 
 
-**QUICK SORT**
+#### **QUICK SORT**
 
 The Quick Sort algorithm works by partitioning the array to be sorted, then recursively sort each of the segments respectively. For this algorithm, one of the elements is selected at random to provide as the pivot point. The values smaller than the pivot value are then placed to the left of the pivot, while the remaining values are positioned to the right. This process then recursively repeats the algorithm for both halves of the original array.
 
@@ -15,7 +15,7 @@ Quick Sort is fast and efficient in practice due to good cache performance and f
 
 
 
-**MERGE SORT**
+#### **MERGE SORT**
 
 
 The Merge Sore algorithm takes a "divide and conquer" approach when sorting an array. It works by dividing the input data into two equal halves, and placing them into separate arrays. This process contiues until we have 𝑛 sublists, each containing one element. Each array is then recursively sorted, and then merged back together to form the final sorted output. The number of levels of recursion needed to reach single-element sublists is logarithmic with respect to the size of the input array. In the worst-case scenario, merging two sorted sublists of size 𝑛/2 each takes O(𝑛) time. Therefore, when accounting for the divide step, there are  O(log 𝑛) levels of recursion. As is the case for most recursive sorts, this will result in a total time complexity of O(𝑛 log 𝑛) for this algorithm (Pandey, 2008).
@@ -28,7 +28,7 @@ Merge Sort, while marginally faster than Heap Sort for larger datasets, demands 
 
 
 
-**COMPARISON**
+#### **COMPARISON**
 
 Although the Quick Sort algorithm is expoentially faster than merge sort in practice, it's limited by it's instability. Despite it's smaller constant factors and better cache locality, the performance efficiency has the capacity to suffer depending on poor pivot selection, especially for certain types of data. Furthermore, although Quick Sort has an average-case time complexity of O(𝑛 log 𝑛), its worst-case time complexity is O(𝑛^2) (as a result of its sensitivity to pivot selection). This makes it both less stable and less predictable than Merge Sort in worst-case scenarios. Having said that, Quick Sort has a lower space complexity of O(log 𝑛) compared to Merge Sort's O(𝑛), making it more memory-efficient for large datasets.
 
@@ -41,7 +41,7 @@ In summary, as is the case with all algorithms, the choice between these two sor
 
 
 
-**BINARY SEARCH**
+#### **BINARY SEARCH**
 
 
 The binary search algorithm, also known as half-interval search, logarithmic search, or binarychop, is a search algorithm that is used to find a particular element within a sorted array (Lin 2019). It works by repeatedly dividing the search interval in half. It compares the target value to the middle of the array; if the value is less than the middle element, the right subarray of the array will be eliminated and the search will be narrowed to the left subarray. This process repeats until the target value is found.
@@ -68,7 +68,7 @@ While makes it much faster than linear search for large datasets, this algorithm
 
 
 
-**LINEAR SEARCH**
+#### **LINEAR SEARCH**
 
 ```
 The time required grows linearly with the size of the input.
@@ -94,14 +94,14 @@ Space Complexity: O(1). Linear search only requires a constant amount of additio
 ```
 
 
-**COMPARISON**
+#### **COMPARISON**
 
 When analysing the time complexity using Big O Notation, the logarithmic time complexity of Binary Search deems it the more efficient option; as it grows much more slowly than linear time complexity. Algorithms with 𝑂(log 𝑛) complexity scale better with increasing input sizes and can sunsequently handle larger data sets more efficiently. In comparison, Linear Search has a worst-case performance of 𝑂(𝑛). Given the sequential nature of this algorithm, it ultimately has an 𝑂(𝑛) complexity in that the time required grows linearly with the size of the input: Thus making it an inefficient choice for larger datasets. Having said that, Binary Search's main limtation is that it requires the array to be already sorted.
 
 In conclusion, while Linear Search is straightforward and works on unsorted arrays, Binary Search provides much better performance on sorted arrays with its logarithmic time complexity. The choice between them depends on the nature of the data (sorted or unsorted) and the size of the dataset, with binary search being the preferred choice for large sorted datasets where efficiency is critical.
 
 
-**RUBRIC**
+#### **RUBRIC**
 - Demonstrates algorithic understanding (4 pts)
     > Provides a full and clear explanation for all algorithms, showcasing exceptional understanding in each explanation.
 
@@ -112,11 +112,15 @@ In conclusion, while Linear Search is straightforward and works on unsorted arra
     > Provides a comprehensive evaluation of algorithm efficiency using Big O notation. Explicitly compares the two algorithms in each pair and considers their practical applicability. Provides insightful discussions on edge cases. Demonstrates a high-level understanding of the implications of time complexity in practical use cases.
 
 
-**REFERENCES**
+#### **REFERENCES**
+
+
 
 Abdel-Hafeez, S. and Gordon-Ross, A., 2017. An Efficient O ($ N $) Comparison-Free Sorting Algorithm. IEEE Transactions on Very Large Scale Integration (VLSI) Systems, 25(6), pp.1930-1942.
 
+
 Pandey, R.C., 2008. Study and Comparison of various sorting algorithms. Computer Science and Engineering.
+
 
 Lin, A., 2019. Binary search algorithm. WikiJournal of Science, 2(1), pp.1-13.
 

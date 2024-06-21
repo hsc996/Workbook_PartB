@@ -44,57 +44,82 @@ In summary, as is the case with all algorithms, the choice between these two sor
 #### **BINARY SEARCH**
 
 
-The binary search algorithm, also known as half-interval search, logarithmic search, or binarychop, is a search algorithm that is used to find a particular element within a sorted array (Lin 2019). It works by repeatedly dividing the search interval in half. It compares the target value to the middle of the array; if the value is less than the middle element, the right subarray of the array will be eliminated and the search will be narrowed to the left subarray. This process repeats until the target value is found.
+The binary search algorithm, also known as half-interval search, logarithmic search, or binarychop, is a search algorithm that is used to find a particular element within a sorted array (Lin 2019). It works by repeatedly dividing the search interval in half and comparing the target value to an element in the middle of the array; if the value is less than the middle element, the right subarray of the array will be eliminated and the search will be narrowed to the left subarray. This process repeats until the target value is found.
 
-Binary search operates by halving the search space in each step, resulting in a logarithmic time complexity. This means that in the worst case scenario, binary search runs in logarithmic time; making 𝑂(log 𝑛) comparisons, where 𝑛 is the number of elements in the array (Lin 2019). 
+Binary search operates by halving the search space in each step, resulting in a logarithmic time complexity. This means that in the worst case scenario, binary search runs in logarithmic time; making 𝑂(log 𝑛) comparisons, where 𝑛 is the number of elements in the array (Lin 2019). Given the nature of the algorithm, the time required will grow logarithmically with the size of the input. Therefore, if you double the size of the input, the time increases only by a constant amount. For example, if an array has 100 elements, a worst-case scenario denotes that a binary search might require up to approximately 7 comparisons before finding the target value (since log₂(100) ≈ 7).
 
 ```
-The time required grows logarithmically with the size of the input.
-If you double the size of the input, the time taken increases only by a constant amount (logarithmically).
-Example: If an array has 100 elements, a binary search might need up to about 7 comparisons in the worst case (since log₂(100) ≈ 7).
+Consider this sorted array: [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+
+Say we want to find the target value 11.
+
+Step 1:
+
+low = 0, high = 9
+mid = (0 + 9) / 2 = 4
+The element at index 4 is 9.
+Since 11 > 9, update low to mid + 1 = 5.
+Step 2:
+
+low = 5, high = 9
+mid = (5 + 9) / 2 = 7
+The element at index 7 is 15.
+Since 11 < 15, update high to mid - 1 = 6.
+Step 3:
+
+low = 5, high = 6
+mid = (5 + 6) / 2 = 5
+The element at index 5 is 11.
+Since 11 == 11, the search is successful.
 ```
-```
+
 In each step of the binary search, the size of the search interval is halved. Thus, if we start with 𝑛 elements, the number of elements to consider reduces as follows:
-
-n → n/2 → n/4 → ... → 1
-
-The number of steps required is the number of times we can divide 𝑛 by 2 until we get 1, which is equivalent to the logarithm base 2 of 𝑛 (log₂ 𝑛). Therefore, the time complexity of binary search is 𝑂(log 𝑛).
 ```
+𝑛 → 𝑛/2 → 𝑛/4 → ... → 1
+```
+The number of steps required is the number of times we can divide n by 2 until we get 1, which is equivalent to the logarithm base 2 of 𝑛 (log₂ 𝑛). Therefore, the time complexity of binary search is O(log 𝑛).
 
-While makes it much faster than linear search for large datasets, this algorithm can only be applied to sorted arrays, thus requiring an additional sorting step for unsorted arrays. Despite this drawback, binary search can be applied to a broader set of problems, including identifying the closest smaller or larger element in an array relative to a given target, even if the target is not present in the array (Lin 2019).
-
-
-
+While the logarithmic run time is advantageous in larger data sets, Binary Search is limited by the requirement for the array to be already sorted: potentially requiring an additional step.
 
 
 
 #### **LINEAR SEARCH**
 
-```
-The time required grows linearly with the size of the input.
-If you double the size of the input, the time taken also doubles.
-Example: If an array has 100 elements, a linear search might need up to 100 comparisons in the worst case.
-```
-```
-1. Linear Search
+Linear Search is a simple and straight-forward algorithm that iterates through an array sequentially until the target value is found or the end of the array is reached. It starts at the beginning, comparing each element with the target value and moving linearly. If the end of the array is reached without finding the target, a signal (commonly -1) is returned to indicate the target element was not found.
 
-Working:
-Linear search is a straight-forward searching algorithm where each element of the array (or list) is checked sequentially until the target element is found or all elements have been checked. It works on both sorted and unsorted arrays.
-
-Steps:
-
-Start from the beginning of the array.
-Compare each element with the target value.
-If the element matches the target, return its index.
-If the end of the array is reached without finding the target, return a signal (commonly -1) indicating the target is not in the array.
-Efficiency (Big O):
-
-Time Complexity: 𝑂(𝑛), where n is the number of elements in the array. This means in the worst-case scenario, linear search will have to scan the entire array once to find the target or determine it's not present.
-Space Complexity: O(1). Linear search only requires a constant amount of additional space for variables regardless of the input size.
 ```
+Example
+Consider an array: [4, 2, 7, 1, 9, 3], and we want to find the target value 9.
+
+Step 1:
+
+Compare the target value 9 with the first element 4.
+9 does not equal 4, so move to the next element.
+Step 2:
+
+Compare 9 with the second element 2.
+9 does not equal 2, so move to the next element.
+Step 3:
+
+Compare 9 with the third element 7.
+9 does not equal 7, so move to the next element.
+Step 4:
+
+Compare 9 with the fourth element 1.
+9 does not equal 1, so move to the next element.
+Step 5:
+
+Compare 9 with the fifth element 9.
+9 equals 9, so the search is successful, and the index 4 is returned.
+```
+
+The time complexity of the linear search algorithm is determined by how many elements need to be checked to find the target value or to determine that it is not in the array. Given that the time required grows linearly with the size of the input: giving it a worst-case time complexity of 𝑂(𝑛). Meaning that if the size of the input doubles, the time take will also double. In this way, this algorithm is most appropriately applicable to short arrays or small data sets. Having said that, as opposed to Binary Search, this algorithm can be applied to both sorted and unsorted arrays. For example, if an array has 100 elements, a linear search might need up to 100 comparisons in the worst case.
+
+
 
 
 #### **COMPARISON**
+
 
 When analysing the time complexity using Big O Notation, the logarithmic time complexity of Binary Search deems it the more efficient option; as it grows much more slowly than linear time complexity. Algorithms with 𝑂(log 𝑛) complexity scale better with increasing input sizes and can sunsequently handle larger data sets more efficiently. In comparison, Linear Search has a worst-case performance of 𝑂(𝑛). Given the sequential nature of this algorithm, it ultimately has an 𝑂(𝑛) complexity in that the time required grows linearly with the size of the input: Thus making it an inefficient choice for larger datasets. Having said that, Binary Search's main limtation is that it requires the array to be already sorted.
 

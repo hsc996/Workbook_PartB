@@ -5,6 +5,7 @@
 
 #### **QUICK SORT**
 
+
 The Quick Sort algorithm works by partitioning the array to be sorted, then recursively sort each of the segments respectively. For this algorithm, one of the elements is selected at random to provide as the pivot point. The values smaller than the pivot value are then placed to the left of the pivot, while the remaining values are positioned to the right. This process then recursively repeats the algorithm for both halves of the original array.
 
 ~Explanation using an example of python code~
@@ -29,6 +30,7 @@ Merge Sort, while marginally faster than Heap Sort for larger datasets, demands 
 
 
 #### **COMPARISON**
+
 
 Although the Quick Sort algorithm is expoentially faster than merge sort in practice, it's limited by it's instability. Despite it's smaller constant factors and better cache locality, the performance efficiency has the capacity to suffer depending on poor pivot selection, especially for certain types of data. Furthermore, although Quick Sort has an average-case time complexity of O(𝑛 log 𝑛), its worst-case time complexity is O(𝑛^2) (as a result of its sensitivity to pivot selection). This makes it both less stable and less predictable than Merge Sort in worst-case scenarios. Having said that, Quick Sort has a lower space complexity of O(log 𝑛) compared to Merge Sort's O(𝑛), making it more memory-efficient for large datasets.
 
@@ -83,7 +85,9 @@ While the logarithmic run time is advantageous in larger data sets, Binary Searc
 
 
 
+
 #### **LINEAR SEARCH**
+
 
 Linear Search is a simple and straight-forward algorithm that iterates through an array sequentially until the target value is found or the end of the array is reached. It starts at the beginning, comparing each element with the target value and moving linearly. If the end of the array is reached without finding the target, a signal (commonly -1) is returned to indicate the target element was not found.
 
@@ -126,15 +130,7 @@ When analysing the time complexity using Big O Notation, the logarithmic time co
 In conclusion, while Linear Search is straightforward and works on unsorted arrays, Binary Search provides much better performance on sorted arrays with its logarithmic time complexity. The choice between them depends on the nature of the data (sorted or unsorted) and the size of the dataset, with binary search being the preferred choice for large sorted datasets where efficiency is critical.
 
 
-#### **RUBRIC**
-- Demonstrates algorithic understanding (4 pts)
-    > Provides a full and clear explanation for all algorithms, showcasing exceptional understanding in each explanation.
 
-- Explains Big O notation calculations (4 pts)
-    > Provides clear explanations for all four algorithms, describing how the Big O notation numbers were calculated. Demonstrates an excellent understanding of the relationship between algorithmic structures and Big O complexity.
-
-- Utilises Big-O notation to analyse algorithm efficiency and applicability (4 pts)
-    > Provides a comprehensive evaluation of algorithm efficiency using Big O notation. Explicitly compares the two algorithms in each pair and considers their practical applicability. Provides insightful discussions on edge cases. Demonstrates a high-level understanding of the implications of time complexity in practical use cases.
 
 
 #### **REFERENCES**

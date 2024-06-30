@@ -99,22 +99,21 @@ Consider this sorted array: [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
 Say we want to find the target value 11.
 
 
-Step 1:
-
+First iteration:
 
 low = 0, high = 9
 mid = (0 + 9) / 2 = 4
 The element at index 4 is 9.
 Since 11 > 9, update low to mid + 1 = 5.
-Step 2:
 
+Second iteration:
 
 low = 5, high = 9
 mid = (5 + 9) / 2 = 7
 The element at index 7 is 15.
 Since 11 < 15, update high to mid - 1 = 6.
-Step 3:
 
+Third iteration:
 
 low = 5, high = 6
 mid = (5 + 6) / 2 = 5
@@ -123,12 +122,13 @@ Since 11 == 11, the search is successful.
 ```
 
 
+Within this example, the array length 𝑛 = 10. The best case scenario would occur if the target value is the middle elemnet of the array. In the average case, it still requires approximately log2 10≈3.32 iterations (we round to the nearest whole number, so around 3-4 iterations). Lastly, the worst case scenario would still require log2 10≈3.32 iterations.
+
 In each step of the binary search, the size of the search interval is halved. Thus, if we start with 𝑛 elements, the number of elements to consider reduces as follows:
 ```
 𝑛 → 𝑛/2 → 𝑛/4 → ... → 1
 ```
 The number of steps required is the number of times we can divide n by 2 until we get 1, which is equivalent to the logarithm base 2 of 𝑛 (log₂ 𝑛). Therefore, the time complexity of binary search is O(log 𝑛).
-
 
 While the logarithmic run time is advantageous in larger data sets, Binary Search is limited by the requirement for the array to be already sorted: potentially requiring an additional step.
 

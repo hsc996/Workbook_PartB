@@ -9,8 +9,22 @@
 
 The Quick Sort algorithm works by partitioning the array to be sorted, then recursively sorting each of the segments respectively. For this algorithm, one of the elements is selected at random to provide as the pivot point. The values smaller than the pivot value are then placed to the left of the pivot, while the remaining values are positioned to the right. This process then recursively repeats the algorithm for both halves of the original array.
 
+```
+EXAMPLE
 
-~Explanation using an example of python code~
+Initial Array: [10,7,8,9,1,5]
+
+First Partition (pivot = 5): [1,5,8,9,10,7]
+- Array becomes [1,5,8,9,10,7] after partitioning around pivot 
+Recursive Quick Sort on Right Subarray [8,9,10,7]
+- Partition (pivot = 7): [1,5,7,9,10,8]
+Recursive Quick Sort on Subarray [9,10,8]
+- Partition (pivot = 8): [1,5,7,8,10,9]
+Recursive Quick Sort on Subarray [10,9]
+Partition (pivot = 9): [1,5,7,8,9,10]
+
+```
+
 
 
 The pivot chosen always divides the array into two nearly equal halves. This means the size of the sub-arrays is consistently reduced by about half each time. The partitioning step has a time complexity of O(𝑛), given we need to go through all the elements of the partition. Furthermore, the depth of recursion is log 𝑛, as the array is divided into two halves each time. This means that in the base case scenario, the total time complexity will be O(𝑛 log 𝑛). However, with Big O Notation it is customary to calculate the time complexity of the worst case scenario. This algorithm is largely impacted by which element is chosen as the pivot point: the worst-case efficiency ( O(𝑛 2)) occurs when the pivot selection consistently results in highly unbalanced partitions (Pandey 2008). A common example that culminates in this result is when the left-most (or right-most) element is chosen as the pivot in a sorted or nearly sorted array. In this scenario, each partitioning step takes O(𝑛) time, in that we need to scan the entire array to divide it into two sub-arrays. Similarly, given each partition results in one empty sub-array and another sub-array with 𝑛 - 1 elements, the depth of recursion is 𝑛. Thus, the total time complexity in this scenario is O(𝑛) x O(𝑛) = O( 𝑛 2). These outcomes can be mitigated using strategies like choosing a random pivot or using the median-of-three method (choosing the median of the first, middle, and last elements) to improve the chances of more balanced partitions and thus better average-case performance (Pandey 2008).
@@ -26,7 +40,25 @@ Quick Sort is fast and efficient in practice due to good cache performance and f
 The Merge Sort algorithm takes a "divide and conquer" approach when sorting an array. It works by dividing the input data into two equal halves, and placing them into separate arrays. This process continues until we have 𝑛 sublists, each containing one element. Each array is then recursively sorted, and then merged back together to form the final sorted output. The number of levels of recursion needed to reach single-element sublists is logarithmic with respect to the size of the input array. In the worst-case scenario, merging two sorted sublists of size 𝑛/2 each takes O(𝑛) time. Therefore, when accounting for the divide step, there are  O(log 𝑛) levels of recursion. As is the case for most recursive sorts, this will result in a total time complexity of O(𝑛 log 𝑛) for this algorithm (Pandey, 2008).
 
 
-~Explanation using example of python code~
+```
+EXAMPLE
+
+Initial Array: [10,7,8,9,1,5]
+
+Divide Step:
+Split into [10,7,8] and [9,1,5]
+Split [10,7,8] into [10] and [7,8]
+Split [7,8] into[7] and [8]
+Split [9,1,5] into [9] and [1,5]
+Split [1,5] into [1] and [5]
+
+Merge Step:
+Merge [7] and [8] to get [7,8]
+Merge [10] and [7,8] to get [7,8,10]
+Merge [1] and [5] to get [1,5]
+Merge [9] and [1,5] to get [1,5,9]
+Finally, merge [7,8,10] and [1,5,9] to get [1,5,7,8,9,10]
+```
 
 
 In each merge step, all the elements of the array are visited once. This step involves comparing and merging elements of the two sorted halves. The time complexity of the merge step is linear with respect to the size of the array being merged. Since we have O(log 𝑛) levels of recursion (as determined by the divide step) and each level's merge step takes O(𝑛) time, the total time complexity for merging is O(𝑛 log 𝑛). This consistency in time complexity, irrespective of the input data, makes this algorithm particularly reliable for larger data sets. Furthermore, its preservation of the relative order of equal elements makes this a 'stable' option.
